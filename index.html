@@ -1,0 +1,62 @@
+<script>
+
+
+var coins = [2,5,1];
+var large ;
+var large_index ;
+var path = [];
+var sum = 0;
+var demanded = 12;
+
+    
+    //FInding max 
+    
+    const get_max = () =>{
+        large = Math.max(...coins);
+        large_index = coins.indexOf(large);
+        console.log("Max:"+large);
+        pushing();
+
+    }
+    
+
+
+    const pushing = () =>{
+        // making path array 
+        let remain = demanded - large;
+        demanded = remain; //Updating
+        
+        path.push(large);
+        sum+=large;
+
+        if(demanded >= large){
+             pushing();
+        }else{
+            //Find What need to feel demand
+        //   coins.splice(large_index,1);
+        //   get_max();
+        //   pushing();
+
+        }
+        console.log("Remains"+ demanded - sum);
+    }
+    
+       
+
+
+    const output = () =>{
+           // Printing path -- output:
+    for (var i = 0; i < path.length; i++) {
+            console.log(i+1 +')  '+path[i]+ '\n')
+        }
+    }
+
+
+     get_max();
+     output();
+        
+        
+ 
+
+
+</script>
